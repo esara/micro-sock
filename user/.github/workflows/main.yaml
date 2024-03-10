@@ -22,7 +22,7 @@ jobs:
       GROUP: weaveworksdemos
       COMMIT: ${{ github.sha }}
       REPO: user
-      GO_VERSION: 1.7.5
+      GO_VERSION: 1.22
       GOPATH: /home/runner/work/user/user/go
 
     steps:
