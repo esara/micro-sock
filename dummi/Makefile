@@ -1,17 +1,17 @@
 .PHONY: all image clean publish
 
-IMAGE=rade/dummi
+IMAGE=weaveworksdemos/micro-sock
 
 all: image
 
-dummi: main.go
-	go build -tags netgo
+micro-sock: main.go
+	env GOOS=linux GOARCH=amd64 go build -tags netgo
 
-image: Dockerfile dummi
+image: Dockerfile micro-sock
 	docker build -t $(IMAGE) .
 
 clean:
-	rm -f dummi
+	rm -f micro-sock
 	docker rmi -f $(IMAGE) 2>/dev/null || true
 
 publish:
